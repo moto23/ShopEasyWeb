@@ -2,11 +2,12 @@ import React, { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTruckFast} from '@fortawesome/free-solid-svg-icons';
 
-
-import { LoginContext } from '../../context/ContextProvider';
+import { DataContext } from '../../context/DataProvider';
+// import { LoginContext } from '../../context/ContextProvider';
 import {Box,Button,Typography,styled} from '@mui/material';
 import Profile from './Profile';
 import LoginDialog from '../Login/LoginDialog';
+
 
 const Wrapper =styled(Box)`
       display:flex;
@@ -35,7 +36,8 @@ const LoginButton = styled(Button)`
 
 const CustomButtons=()=>{
     const [open,setOpen] = useState(false);
-    const { account, setAccount } = useContext(LoginContext);
+    // const { account, setAccount } = useContext(LoginContext);
+    const {account,setAccount} = useContext(DataContext);
     const openDialog = () =>{
         setOpen(true);
     }
@@ -43,7 +45,7 @@ const CustomButtons=()=>{
     return(
         <Wrapper>
             {
-         account ? <Profile account={account} setAccount={setAccount} /> :        
+         account ? <Profile account={account} setAccount={setAccount}/>:        
         <LoginButton variant="contained" onClick={() => openDialog()}>Hello!Login</LoginButton>
 }
         <Typography style={{marginTop:5,width:140}}>

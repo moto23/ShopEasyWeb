@@ -1,87 +1,112 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
+import { Box, Typography, styled } from '@mui/material';
+import { navData } from '../../constants/data';
 
-// const Navbar = ({ data }) => {
-//   const [selectedCategory, setSelectedCategory] = useState('');
-//   const [selectedSubcategory, setSelectedSubcategory] = useState('');
-
-//   return (
-//     <div className="navbar">
-//       <select
-//         value={selectedCategory}
-//         onChange={(e) => {
-//           setSelectedCategory(e.target.value);
-//           setSelectedSubcategory(''); // Reset subcategory when a new category is selected
-//         }}
-//       >
-//         <option value="">Select a Category</option>
-//         {data.map((item, index) => (
-//           <option key={index} value={item.category}>
-//             {item.category}
-//           </option>
-//         ))}
-//       </select>
-
-//       {selectedCategory && (
-//         <select
-//           value={selectedSubcategory}
-//           onChange={(e) => setSelectedSubcategory(e.target.value)}
-//         >
-//           <option value="">Select a Subcategory</option>
-//           {data
-//             .find((item) => item.category === selectedCategory)
-//             .subcategories.map((subcategory, index) => (
-//               <option key={index} value={subcategory}>
-//                 {subcategory}
-//               </option>
-//             ))}
-//         </select>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Navbar;
-import React from 'react'
-import {Box,Typography,styled} from '@mui/material';
-import {navData} from '../../constants/data';
+export const MenuItems = [
+  {
+    title: 'Mens Fashion',
+    path: '/mensfashion',
+    cName: 'dropdown-link'
+  },
+  {
+    title: 'Womens Fashion',
+    path: '/womensfashion',
+    cName: 'dropdown-link'
+  },
+  {
+    title: 'Childrens Fashion',
+    path: '/childrensfashion',
+    cName: 'dropdown-link'
+  },
+  {
+    title: 'Traditional Clothing',
+    path: '/traditionalclothing',
+    cName: 'dropdown-link'
+  }
+];
 
 const Component = styled(Box)`
-     display:flex;
-     margin: 40px 0px 0 0px;
-     justify-content: space-between;
-     background-color:#36454F;
-     color:#fff;
-`
+  display: flex;
+  margin: 30px 0px 0 0px;
+  justify-content: flex;
+  background-color: #36454f;
+  color: #fff;
+`;
 
-const Container=styled(Box)`
-      padding: 3px 41px;
-      text-align:center;
-      
-`
+const Container = styled(Box)`
+  padding: 5px 61px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  
+`;
 
-const Text=styled(Typography)`
-      font-size: 14px;
-      font-weight: 500;
-      font-family:inherit;
-`
+const Text = styled(Typography)`
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  color: ${(props) => (props.isBlackTitle ? '#000' : '#fff')};
+  text-color: black;
+`;
 
+const Image = styled('img')`
+  width: 43px;
+  margin-bottom: 5px;
+`;
 
+const ArrowIcon = styled('span')`
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+`;
 
-const Navbar=() =>{
+const SubcategoriesContainer = styled('div')`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+  background-color: #fff;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 5px;
+`;
+
+const Navbar = () => {
+  const [isSubcategoriesVisible, setSubcategoriesVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setSubcategoriesVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setSubcategoriesVisible(false);
+  };
+
   return (
     <Component>
-     {
-        navData.map(data =>(
-            <Container>
-                
-                <img src ={data.url} alt="nav" style={{width:43}}/>
-                <Text>{data.text}</Text>
-            </Container>
-
-        ))
-     }
+      {navData.map((data, index) => (
+        <Container
+          key={index}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Image src={data.url} alt={data.text} />
+          <Text isBlackTitle={data.title === 'Mens Fashion'}>{data.text}</Text>
+          {data.text === 'Fashion' && (
+            <ArrowIcon>▼</ArrowIcon>
+          )}
+          {isSubcategoriesVisible && data.text === 'Fashion' && (
+            <SubcategoriesContainer isVisible={isSubcategoriesVisible}>
+              {MenuItems.map((item, subIndex) => (
+                <div key={subIndex}>{item.title}</div>
+              ))}
+            </SubcategoriesContainer>
+          )}
+        </Container>
+      ))}
     </Component>
-  )
-}
+  );
+};
 
 export default Navbar;

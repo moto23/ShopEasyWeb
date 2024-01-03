@@ -3,10 +3,10 @@ export const navData = [
     { url: ' https://cdn-icons-png.flaticon.com/128/1682/1682360.png', text: 'Grocery' },
     { url: ' https://cdn-icons-png.flaticon.com/128/644/644458.png', text: 'Mobile' },
     { url: ' https://cdn-icons-png.flaticon.com/128/3659/3659899.png', text: 'Electronics' },
-    { url: ' https://cdn-icons-png.flaticon.com/128/3260/3260734.png', text: 'Top Offers' },
+    // { url: ' https://cdn-icons-png.flaticon.com/128/3260/3260734.png', text: 'Top Offers' },
     { url: ' https://cdn-icons-png.flaticon.com/128/9044/9044912.png', text: 'Home' },
     { url: ' https://cdn-icons-png.flaticon.com/128/5540/5540292.png', text: 'Appliances' },
-    { url: ' https://cdn-icons-png.flaticon.com/128/3762/3762131.png', text: 'Travel' },
+    // { url: ' https://cdn-icons-png.flaticon.com/128/3762/3762131.png', text: 'Travel' },
     { url: 'https://cdn-icons-png.flaticon.com/128/3082/3082060.png', text: 'Toys & More' }
 ];     
       
@@ -24,3 +24,25 @@ export const imageURL = [
 ];
 
 
+export const MenuItems = [
+    {
+      title: 'Mens Fashion',
+      path: '/mensfashon',
+      cName: 'dropdown-link'
+    },
+    {
+      title: 'Womens Fashion',
+      path: '/womensfashion',
+      cName: 'dropdown-link'
+    },
+    {
+      title: 'Childrens Fashion',
+      path: '/childrensfashion',
+      cName: 'dropdown-link'
+    },
+    {
+      title: 'Traditional Clothing',
+      path: '/traditionalclothing',
+      cName: 'dropdown-link'
+    }
+  ];

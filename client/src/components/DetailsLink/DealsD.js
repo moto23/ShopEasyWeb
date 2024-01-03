@@ -34,7 +34,7 @@ export const ProductContainer = styled.div`
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  max-width: 300px;
+  max-width: 400px;
   width: 100%;
 `;
 
@@ -68,14 +68,14 @@ const DealsD = () => {
 
   const products = [
     {
-      title: 'Product 1',
-      description: 'Short description for Product 1.',
-      imageSrc: 'path/to/product1-image.jpg',
+      title: 'boAt Airdopes 170 TWS Earbuds',
+      description: '50H Playtime, Quad Mics ENx™ Tech, Low Latency Mode, 13mm Drivers, ASAP™ Charge, IPX4, IWP™, Touch Controls & BT v5.3(Classic Black)',
+      imageSrc: 'https://m.media-amazon.com/images/I/51YOeZehIKL._SX679_.jpg',
     },
     {
-      title: 'Product 2',
-      description: 'Short description for Product 2.',
-      imageSrc: 'path/to/product2-image.jpg',
+      title: 'KTRIKSHA Cotton Blend Fabric',
+      description: 'Embroidery Work Kurtis for Womens This Kurtis Suitable for Leggings and Pants Daily use This Product.',
+      imageSrc: 'https://m.media-amazon.com/images/I/71v5iFdLF7L._SY879_.jpg',
     },
     // Add more products as needed
   ];

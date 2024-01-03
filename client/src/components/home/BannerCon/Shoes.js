@@ -91,11 +91,11 @@ function Shoes() {
       'Breathable fabric to keep your feet cool and dry.',
       'Durable rubber outsole for excellent traction.',
     ],
-    imageSrc: 'path/to/your/main/image.jpg',
+    imageSrc: 'https://m.media-amazon.com/images/I/71+JSg40JqL._SY695_.jpg',
     additionalImages: [
-      'path/to/your/image1.jpg',
-      'path/to/your/image2.jpg',
-      'path/to/your/image3.jpg',
+      'https://m.media-amazon.com/images/I/81s7TkVJnlL._SY695_.jpg',
+      'https://m.media-amazon.com/images/I/81xMCP2i9tL._SY695_.jpg',
+      'https://m.media-amazon.com/images/I/81PmabBcROL._SY695_.jpg',
     ],
   };
 

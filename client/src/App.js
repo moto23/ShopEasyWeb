@@ -1,7 +1,7 @@
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import {Box} from '@mui/material';
-import ContextProvider from './context/ContextProvider';
+import DataProvider from './context/DataProvider';
 import { Route, Routes } from 'react-router-dom';
 import GamesD from './components/DetailsLink/GamesD';
 import Navbar from './components/home/Navbar';
@@ -21,7 +21,7 @@ import Shoes from './components/home/BannerCon/Shoes';
 function App() {
   
   return (
-    <ContextProvider>
+    <DataProvider>
     
      <Header/>
      <Box style ={{marginTop:54}}>
@@ -50,7 +50,7 @@ function App() {
      </Box>
      
     
-    </ContextProvider>
+    </DataProvider>
   );
 }
 
